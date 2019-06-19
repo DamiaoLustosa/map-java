@@ -1,31 +1,27 @@
 package aplicacao;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
+
+import entities.Produto;
 
 public class Programa {
 	public static void main(String args[]) {
-		Map<String, String> cook = new TreeMap<>();
+		Map<Produto, Double> stock = new HashMap<>();
 
-		cook.put("Usuario", "Maria");
-		cook.put("email", "maria@gmail.com");
-		cook.put("fone", "99914253");
-		cook.put("endereco", "rua D");
-
-		cook.remove("fone");
+		Produto p1 = new Produto ("TV", 900.00);
+		Produto p2 = new Produto ("Notebook", 1600.00);
+		Produto p3 = new Produto ("Tablet", 2000.00);
 		
-		cook.put("fone", "99914856");	//Como o map não aceita repetição de chaves, ele vai sobrescrever o valo da chave já existente
+		stock.put(p1, 10000.00);
+		stock.put(p2, 20000.00);
+		stock.put(p3, 15000.00);
+		
+		Produto ps = new Produto ("TV", 900.00);
 		
 
-		System.out.println("Todos os Cookies: ");
-		for (String key : cook.keySet()) {
-			System.out.println(key + ": " + cook.get(key));
-
-		}
+		System.out.println("Contem a chave 'ps'? " + stock.containsKey(ps)); //Verifica se contem uma chave com nome 'fone'
 		
-		System.out.println("Contem a chave fone? " + cook.containsKey("fone")); //Verifica se contem uma chave com nome 'fone'
-		System.out.println("Número do fone? " + cook.get("fone"));	//get Acessa o valor da chave passada
-		System.out.println("Tamanho do Map: " + cook.size());	//Size retorna o tamanho do Map
 	}
 
 }
